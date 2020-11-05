@@ -1,0 +1,29 @@
+#profile {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#profileContainer {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+}
+
+#curtain{
+    /*display: none;*/
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+}
+

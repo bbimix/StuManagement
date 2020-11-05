@@ -1,0 +1,32 @@
+#loginContainer {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+    height: 60vh;
+    width: 20vw;
+    border-radius: 20px;
+}
+
+#loginForm{
+    position: absolute;
+    top: 45%;
+}
+
+#tagContainer{
+    position: absolute;
+    height: 45%;
+    width: 100%;
+}
+
+#tagText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    font-family: Serif;
+    font-weight: 100;
+}

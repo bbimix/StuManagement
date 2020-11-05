@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ujn.dao.StudentMapper">
+    <resultMap id="userMap" type="cn.edu.ujn.model.Student">
+        <id property="stuno" column="stu_guid" javaType="String" jdbcType="VARCHAR"></id>
+        <result property="loginame" column="loginame" javaType="String" jdbcType="VARCHAR"></result>
+        <result property="loginpwd" column="loginpwd" javaType="String" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <!--    插入一个student记录-->
+    <insert id="insert" parameterType="cn.edu.ujn.model.Student">
+    insert into tbl_student (stuno,stuname,stutype,loginame,loginpwd) values (#{stuno},#{stuname},#{stutype},#{loginame},#{loginpwd})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="cn.edu.ujn.model.Student">
+    update tbl_student set classname=#{classname},photo=#{photo},gender=#{gender},phone=#{phone},
+    email=#{email},openid=#{openid},qqno=#{qqno} where loginame=#{loginame}
+    </update>
+    <update id="updateSafe" parameterType="cn.edu.ujn.model.Student">
+    update tbl_student set question=#{question},answer=#{answer} where loginame=#{loginame}
+    </update>
+    <update id="updatePersonal" parameterType="cn.edu.ujn.model.Student">
+    update tbl_student set nation=#{nation},country=#{country},origin=#{origin},nowaddress=#{nowaddress},
+    zipcode=#{zipcode},Personid=#{Personid},birthday=#{birthday},fathername=#{fathername},fatherphone=#{fatherphone},
+     mothername=#{mothername},mothephone=#{mothephone},Whereabouts=#{whereabouts},Roommateinfo=#{Roommateinfo} where loginame=#{loginame}
+    </update>
+    <!--    通过登录名获取密码-->
+    <select id="selectByLoginame" parameterType="java.lang.String" resultType="cn.edu.ujn.model.Student">
+    select * from tbl_student where loginame = #{s}
+    </select>
+    <!--    通过guid获取student对象-->
+    <select id="selectByStuno" resultType="cn.edu.ujn.model.Student">
+    select * from tbl_student where stuno = #{stuno}
+    </select>
+    <select id="selectImageByLoginame" resultType="java.lang.String">
+        select photo from tbl_student where loginame=#{loginame}
+    </select>
+</mapper>
